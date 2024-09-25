@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.Color;
+
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -24,6 +26,8 @@ public class LocalBank {
 	private JTextField fname;
 	private JTextField lname;
 	private JTextField bgBalance;
+	
+	Bank easySave = new Bank();
 
 	/**
 	 * Launch the application.
@@ -60,11 +64,7 @@ public class LocalBank {
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
-		JComboBox BankAct = new JComboBox();
-		BankAct.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		BankAct.setModel(new DefaultComboBoxModel(new String[] {"Select an Item"}));
-		BankAct.setBounds(57, 41, 483, 22);
-		panel.add(BankAct);
+		
 		
 		acctNum = new JTextField();
 		acctNum.addMouseListener(new MouseAdapter() {
@@ -74,7 +74,7 @@ public class LocalBank {
 			}
 		});
 		acctNum.setText("Account number ");
-		acctNum.setBounds(57, 98, 483, 22);
+		acctNum.setBounds(57, 108, 483, 22);
 		panel.add(acctNum);
 		acctNum.setColumns(10);
 		
@@ -88,7 +88,7 @@ public class LocalBank {
 		});
 		amt.setText("Amount");
 		amt.setColumns(10);
-		amt.setBounds(57, 144, 483, 22);
+		amt.setBounds(57, 156, 483, 22);
 		panel.add(amt);
 		
 		fname = new JTextField();
@@ -100,7 +100,7 @@ public class LocalBank {
 		});
 		fname.setText("First name");
 		fname.setColumns(10);
-		fname.setBounds(57, 192, 483, 22);
+		fname.setBounds(57, 202, 483, 22);
 		panel.add(fname);
 		
 		lname = new JTextField();
@@ -112,7 +112,7 @@ public class LocalBank {
 		});
 		lname.setText("Last name");
 		lname.setColumns(10);
-		lname.setBounds(57, 236, 483, 22);
+		lname.setBounds(57, 255, 483, 22);
 		panel.add(lname);
 		
 		bgBalance = new JTextField();
@@ -124,16 +124,125 @@ public class LocalBank {
 		});
 		bgBalance.setText("Begining balance");
 		bgBalance.setColumns(10);
-		bgBalance.setBounds(57, 290, 483, 22);
+		bgBalance.setBounds(57, 307, 483, 22);
 		panel.add(bgBalance);
 		
 		JLabel actinfo = new JLabel("");
-		actinfo.setBounds(163, 333, 377, 27);
+		actinfo.setBounds(163, 357, 377, 27);
 		panel.add(actinfo);
 		
+		JComboBox BankAct = new JComboBox();
+		BankAct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (BankAct.getSelectedIndex()==1)
+				{
+					acctNum.setForeground(Color.red);
+					amt.setForeground(Color.red);
+					fname.setForeground(Color.black);
+					lname.setForeground(Color.black);
+					bgBalance.setForeground(Color.black);
+				}
+				else if (BankAct.getSelectedIndex()==2)
+				{
+					acctNum.setForeground(Color.red);
+					amt.setForeground(Color.red);
+					fname.setForeground(Color.black);
+					lname.setForeground(Color.black);
+					bgBalance.setForeground(Color.black);
+				}
+				else if (BankAct.getSelectedIndex()==3)
+				{
+					acctNum.setForeground(Color.red);
+					amt.setForeground(Color.black);
+					fname.setForeground(Color.black);
+					lname.setForeground(Color.black);
+					bgBalance.setForeground(Color.black);
+				}
+				else if (BankAct.getSelectedIndex()==4)
+				{
+					acctNum.setForeground(Color.black);
+					amt.setForeground(Color.black);
+					fname.setForeground(Color.red);
+					lname.setForeground(Color.red);
+					bgBalance.setForeground(Color.red);
+				}
+				else if (BankAct.getSelectedIndex()==5)
+				{
+					acctNum.setForeground(Color.red);
+					amt.setForeground(Color.black);
+					fname.setForeground(Color.black);
+					lname.setForeground(Color.black);
+					bgBalance.setForeground(Color.black);
+				}
+				
+			}
+			
+			
+		});
+		BankAct.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		BankAct.setModel(new DefaultComboBoxModel(new String[] {"Select an Item", "Deposit", "Withdrawal", "Check balance", "Add an account", "Remove an account"}));
+		BankAct.setBounds(57, 41, 483, 22);
+		panel.add(BankAct);
+		
+		
 		JButton ahhadlkjdf = new JButton("Process transaction");
-		ahhadlkjdf.setBounds(24, 382, 127, 22);
+		ahhadlkjdf.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String amount, message;
+				
+				if(BankAct.getSelectedItem().equals("Deposit")) 
+				{
+					amount = amt.getText();
+					message = easySave.transaction(1, acctNum.getText(), Double.parseDouble(amount));
+				} 
+				else if(BankAct.getSelectedItem().equals("Withdrawal")) 
+				{
+					amount = amt.getText();
+					message = easySave.transaction(2, acctNum.getText(), Double.parseDouble(amount));
+				}
+				else if(BankAct.getSelectedItem().equals("Check balance"))
+				{
+					message = easySave.checkBalance(acctNum.getText());
+					actinfo.setText( message);
+				}
+				else if(BankAct.getSelectedItem().equals("Add an account"))
+				{
+					amount = bgBalance.getText();
+					message = easySave.addAccount( Double.parseDouble(amount), fname.getText(), lname.getText());
+					actinfo.setText("New account ID is " + message);
+					
+				}
+				else if(BankAct.getSelectedItem().equals("Remove an account"))
+				{
+					amount = amt.getText();
+					message = easySave.deleteAccount(acctNum.getText());
+					actinfo.setText("Account ID deleted is " + acctNum.getText());
+				}
+			}
+		});
+		ahhadlkjdf.setBounds(24, 382, 140, 36);
 		panel.add(ahhadlkjdf);
+		
+		JLabel dontcare = new JLabel("Account number");
+		dontcare.setBounds(57, 88, 483, 14);
+		panel.add(dontcare);
+		
+		JLabel lblAmount = new JLabel("Amount");
+		lblAmount.setBounds(57, 141, 483, 14);
+		panel.add(lblAmount);
+		
+		JLabel lblFirstName = new JLabel("First name");
+		lblFirstName.setBounds(57, 189, 483, 14);
+		panel.add(lblFirstName);
+		
+		JLabel lblLastName = new JLabel("Last name");
+		lblLastName.setBounds(57, 241, 483, 14);
+		panel.add(lblLastName);
+		
+		JLabel lblBeginingBalance = new JLabel("Begining Balance");
+		lblBeginingBalance.setBounds(57, 288, 483, 14);
+		panel.add(lblBeginingBalance);
 		
 		
 	}
