@@ -131,48 +131,69 @@ public class LocalBank {
 		actinfo.setBounds(163, 357, 377, 27);
 		panel.add(actinfo);
 		
+		JLabel dontcare = new JLabel("Account number");
+		dontcare.setBounds(57, 88, 483, 14);
+		panel.add(dontcare);
+		
+		JLabel lblAmount = new JLabel("Amount");
+		lblAmount.setBounds(57, 141, 483, 14);
+		panel.add(lblAmount);
+		
+		JLabel lblFirstName = new JLabel("First name");
+		lblFirstName.setBounds(57, 189, 483, 14);
+		panel.add(lblFirstName);
+		
+		JLabel lblLastName = new JLabel("Last name");
+		lblLastName.setBounds(57, 241, 483, 14);
+		panel.add(lblLastName);
+		
+		JLabel lblBeginingBalance = new JLabel("Begining Balance");
+		lblBeginingBalance.setBounds(57, 288, 483, 14);
+		panel.add(lblBeginingBalance);
+		
+		
 		JComboBox BankAct = new JComboBox();
 		BankAct.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (BankAct.getSelectedIndex()==1)
 				{
-					acctNum.setForeground(Color.red);
-					amt.setForeground(Color.red);
-					fname.setForeground(Color.black);
-					lname.setForeground(Color.black);
-					bgBalance.setForeground(Color.black);
+					dontcare.setForeground(Color.red);
+					lblAmount.setForeground(Color.red);
+					lblFirstName.setForeground(Color.black);
+					lblLastName.setForeground(Color.black);
+					lblBeginingBalance.setForeground(Color.black);
 				}
 				else if (BankAct.getSelectedIndex()==2)
 				{
-					acctNum.setForeground(Color.red);
-					amt.setForeground(Color.red);
-					fname.setForeground(Color.black);
-					lname.setForeground(Color.black);
-					bgBalance.setForeground(Color.black);
+					dontcare.setForeground(Color.red);
+					lblAmount.setForeground(Color.red);
+					lblFirstName.setForeground(Color.black);
+					lblLastName.setForeground(Color.black);
+					lblBeginingBalance.setForeground(Color.black);
 				}
 				else if (BankAct.getSelectedIndex()==3)
 				{
-					acctNum.setForeground(Color.red);
-					amt.setForeground(Color.black);
-					fname.setForeground(Color.black);
-					lname.setForeground(Color.black);
-					bgBalance.setForeground(Color.black);
+					dontcare.setForeground(Color.red);
+					lblAmount.setForeground(Color.black);
+					lblFirstName.setForeground(Color.black);
+					lblLastName.setForeground(Color.black);
+					lblBeginingBalance.setForeground(Color.black);
 				}
 				else if (BankAct.getSelectedIndex()==4)
 				{
-					acctNum.setForeground(Color.black);
-					amt.setForeground(Color.black);
-					fname.setForeground(Color.red);
-					lname.setForeground(Color.red);
-					bgBalance.setForeground(Color.red);
+					dontcare.setForeground(Color.black);
+					lblAmount.setForeground(Color.black);
+					lblFirstName.setForeground(Color.red);
+					lblLastName.setForeground(Color.red);
+					lblBeginingBalance.setForeground(Color.red);
 				}
 				else if (BankAct.getSelectedIndex()==5)
 				{
-					acctNum.setForeground(Color.red);
-					amt.setForeground(Color.black);
-					fname.setForeground(Color.black);
-					lname.setForeground(Color.black);
-					bgBalance.setForeground(Color.black);
+					dontcare.setForeground(Color.red);
+					lblAmount.setForeground(Color.black);
+					lblFirstName.setForeground(Color.black);
+					lblLastName.setForeground(Color.black);
+					lblBeginingBalance.setForeground(Color.black);
 				}
 				
 			}
@@ -195,16 +216,18 @@ public class LocalBank {
 				{
 					amount = amt.getText();
 					message = easySave.transaction(1, acctNum.getText(), Double.parseDouble(amount));
+					actinfo.setText(message);
 				} 
 				else if(BankAct.getSelectedItem().equals("Withdrawal")) 
 				{
 					amount = amt.getText();
 					message = easySave.transaction(2, acctNum.getText(), Double.parseDouble(amount));
+					actinfo.setText(message);
 				}
 				else if(BankAct.getSelectedItem().equals("Check balance"))
 				{
 					message = easySave.checkBalance(acctNum.getText());
-					actinfo.setText( message);
+					actinfo.setText(message);
 				}
 				else if(BankAct.getSelectedItem().equals("Add an account"))
 				{
@@ -219,30 +242,20 @@ public class LocalBank {
 					message = easySave.deleteAccount(acctNum.getText());
 					actinfo.setText("Account ID deleted is " + acctNum.getText());
 				}
+				
+				acctNum.setText(null);
+				amt.setText(null);
+				fname.setText(null);
+				lname.setText(null);
+				bgBalance.setText(null);
+				
+				
 			}
 		});
 		ahhadlkjdf.setBounds(24, 382, 140, 36);
 		panel.add(ahhadlkjdf);
 		
-		JLabel dontcare = new JLabel("Account number");
-		dontcare.setBounds(57, 88, 483, 14);
-		panel.add(dontcare);
 		
-		JLabel lblAmount = new JLabel("Amount");
-		lblAmount.setBounds(57, 141, 483, 14);
-		panel.add(lblAmount);
-		
-		JLabel lblFirstName = new JLabel("First name");
-		lblFirstName.setBounds(57, 189, 483, 14);
-		panel.add(lblFirstName);
-		
-		JLabel lblLastName = new JLabel("Last name");
-		lblLastName.setBounds(57, 241, 483, 14);
-		panel.add(lblLastName);
-		
-		JLabel lblBeginingBalance = new JLabel("Begining Balance");
-		lblBeginingBalance.setBounds(57, 288, 483, 14);
-		panel.add(lblBeginingBalance);
 		
 		
 	}
