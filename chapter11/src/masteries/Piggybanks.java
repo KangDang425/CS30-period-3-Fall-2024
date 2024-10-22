@@ -20,8 +20,6 @@ public class Piggybanks implements Serializable {
 
 
 
-
-
     //Constructor
 
     public Piggybanks()
@@ -31,8 +29,6 @@ public class Piggybanks implements Serializable {
         tmon = 0;
 
     }
-
-
 
 
 
@@ -88,11 +84,6 @@ public class Piggybanks implements Serializable {
         tmon += 0.25;
         System.out.println("A quarter was added.\n");
     }
-
-
-
-
-
 
 
 

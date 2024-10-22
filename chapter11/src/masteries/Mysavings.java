@@ -53,7 +53,7 @@ public class Mysavings {
 		
 		
 		
-		
+		//ask user 4 their input
 		
 		System.out.println("Do you want to load the next file, Y for yes N for no. ");
 		filez = input.next();
@@ -108,7 +108,7 @@ public class Mysavings {
 			
 		}
 		
-		
+		//user input system
 		while (quit == false) 
 		{
 			System.out.println("1. Show total in bank.");
