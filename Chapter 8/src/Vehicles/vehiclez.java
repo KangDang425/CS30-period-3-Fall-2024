@@ -1,6 +1,6 @@
 package Vehicles;
 
-public class vehiclez {
+public abstract class vehiclez {
 
 	private double cargosize;
 	private double tirenum;
