@@ -24,7 +24,7 @@ public class uni {
 		
 		do
 		{
-			System.out.println("\n (E)mployee or (pay) or (Q)uit");
+			System.out.println("\n (E)mployee or (what is their pay) or (Q)uit");
 			System.out.println("Enter your choice plz");
 			action = input.next();
 			

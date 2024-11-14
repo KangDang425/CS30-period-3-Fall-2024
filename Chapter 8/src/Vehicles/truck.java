@@ -4,9 +4,9 @@ public class truck extends vehiclez{
 
 	private double backbed;
 	
-	public truck(double cs, double tn, double fec, double feh, double sc, double bb) {
+	public truck(double cs, double tn, double fec, double feh, double sc, double  b) {
 		super(cs, tn, fec, feh, sc);
-		backbed = bb;
+		backbed = b;
 		
 	}
 	
