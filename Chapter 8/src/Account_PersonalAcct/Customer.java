@@ -74,7 +74,7 @@ public class Customer {
 		String custString;
 
 		//update this string so that it contains the street, city, province, and postal code
-		custString = firstName + " " + lastName + "\n";
+		custString = firstName + " " + lastName + " ,your street is " + street +" ,your city is " + city + " ,your province is " + province + " ,and your postal code is " + postal_code;
 	 	return(custString);
 	}
 

@@ -16,14 +16,7 @@ public class UEmployee {
 		sall = sal;
 	}
 	
-	public String toString()
-	{
-		String empstuff;
-		
-		empstuff = "The employee's name is " + empname + "and the salary is " + sal;
-		
-		return empstuff;
-	}
+	
 	
 	//obtainer
 	
@@ -52,7 +45,14 @@ public class UEmployee {
 		return(sal);
 	}
 	
-	
+	public String toString()
+	{
+		String empstuff;
+		
+		empstuff = "The employee's name is " + empname + "and the salary is " + sal + " ";
+		
+		return empstuff;
+	}
 	
 	
 	

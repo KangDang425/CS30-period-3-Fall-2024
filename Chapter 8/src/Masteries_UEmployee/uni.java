@@ -24,11 +24,11 @@ public class uni {
 		
 		do
 		{
-			System.out.println("\n (E)mployee or (what is their pay) or (Q)uit");
+			System.out.println("\n (E)mployee or (C)hoose or (Q)uit");
 			System.out.println("Enter your choice plz");
 			action = input.next();
 			
-			if (action.equalsIgnoreCase("Q"))
+			if (action.equalsIgnoreCase("C"))
 			{
 				System.out.println("enter Employee num, 1 or 2");
 				empnum = input.nextInt();
@@ -55,8 +55,8 @@ public class uni {
 			
 			if (action.equalsIgnoreCase("E"))
 			{
-				System.out.println("Enter the hours for associate or pay for manager");
-				payArg = input.nextDouble();
+				
+				
 				
 				
 				
@@ -70,5 +70,33 @@ public class uni {
 	}
 
 	}
+
+/*
+ * Screen dump 1 
+ * 
+(E)mployee or (what is their pay) or (Q)uit
+Enter your choice plz
+
+e
+The employee's name is Logan lahhhh and the salary is 0.0 the department is teachman
+
+ * 
+ * 
+ * 
+ * Screen dump2 
+ * 
+ *  (E)mployee or (C)hoose or (Q)uit
+Enter your choice plz
+e
+The employee's name is grayyson nocluelast and the salary is 0.0 the job title is hihihih
+ * 
+ * 
+ */
+
+
+
+
+
+
 
 

@@ -90,7 +90,10 @@ public class Account {
 	
 	public void changeAdress()
 	{
-		
+		cust.changecity();
+		cust.changepost();
+		cust.changeprov();
+		cust.changestreet();
 	}
 
 

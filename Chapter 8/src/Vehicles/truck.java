@@ -6,7 +6,7 @@ public class truck extends vehiclez{
 	
 	public truck(double cs, double tn, double fec, double feh, double sc, double  b) {
 		super(cs, tn, fec, feh, sc);
-		backbed = b;
+		backbed = b ;
 		
 	}
 	
