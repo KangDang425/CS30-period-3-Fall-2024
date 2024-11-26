@@ -22,6 +22,7 @@ public class stack3 {
 	
 	public Object pop()
 	{
+		top -= 1;
 		Object topItem = data.get(top);
 		data.remove(top);
 		return(topItem);
@@ -30,14 +31,14 @@ public class stack3 {
 	public void push(Object item)
 	{
 		top += 1;
-		data.add(top,item);
+		data.add(item);
 		
 		
 	}
 	
 	public boolean isEmpty()
 	{
-		if(top==1)
+		if(top==-1)
 		{
 			return true;
 		}
