@@ -1,28 +1,11 @@
-package skillbuilders;
-
-/*
-
-Program: LinkedList.java          Date: November 25, 2024
-
-Purpose: Modify the LinkedList class to include functions size(), addAtEnd() and makeEmpty().
-
-Author: Kang Dang
-
-School: CHHS
-
-Course: Computer Science 30
-
-*/
+package Masteries;
 
 
-
-
-
-public class linkedList 
+public class linkedlist 
 
 {
 
-	private Node head;
+	private node head;
 
 	
 
@@ -30,7 +13,7 @@ public class linkedList
 
 	//constructor
 
-	public linkedList() 
+	public linkedlist() 
 
 	{
 
@@ -39,7 +22,10 @@ public class linkedList
 	}
 
 	
-
+	public Object front()
+	{
+		return (head.getData());
+	}
 	
 
 	
@@ -48,11 +34,11 @@ public class linkedList
 
 	//Adds a node to the linked list.
 
-	public void addAtFront(String str) 
+	public void addAtFront(Object str) 
 
 	{
 
-		Node newNode = new Node(str);
+		node newNode = new node(str);
 
 		newNode.setNext(head);
 
@@ -66,57 +52,53 @@ public class linkedList
 
 	//Adds a node to the end of the linked list.
 
-	public void addAtEnd(String str)
+	public void addAtEnd(Object str)
 
 	{
-
-		Node current = head;
-
-		Node newNode = new Node(str);
+		node newNode = new node(str);
+		node current = head;
 
 		
 
-		while (current.getNext() != null) 
-
+		if (current == null)
 		{
-
-			current = current.getNext();
-
+			newNode.setNext(head);
+			head = newNode;
 		}
+		
+		else
+		{
+			while (current.getNext() != null) 
 
-		current.setNext(newNode);
+			{
 
+				current = current.getNext();
+
+			}
+
+			current.setNext(newNode);
+		}
+		
 	}
-
-	
-
-	
-
 
 
 	//Deletes a node in the linked list.
 
-	public void remove(String str) 
+	public void remove(Object object) 
 
 	{
 
-		Node current = head;
+		node current = head;
 
-		Node previous = head;
+		node previous = head;
 
-	
-
-	
-
-		if (current.getData().equals(str)) 
+		if (current.getData().equals(object)) 
 
 		{
 
 			head = current.getNext();
 
 		} 
-
-		
 
 		else 
 
@@ -130,11 +112,8 @@ public class linkedList
 
 				current = current.getNext();
 
-				
 
-				
-
-				if (current.getData().equals(str)) 
+				if (current.getData().equals(object)) 
 
 				{
 
@@ -148,21 +127,13 @@ public class linkedList
 
 	}
 
-	
-
-	
-
-	
-
-	
 
 	//Counts every item in the linked list
 
 	public int size()
 
 	{
-
-		Node current = head;
+		node current = head;
 
 		int listItems = 0;
 
@@ -185,16 +156,10 @@ public class linkedList
 			}
 
 		}
-
 		
-
 		return listItems;
 
 	}
-
-	
-
-
 
 	//Creates a string that lists the nodes of the linked list.
 
@@ -202,21 +167,17 @@ public class linkedList
 
 	{
 
-		Node current = head;
+		node current = head;
 
 		String listString;
 
-		
-
+	
 		
 
 		if (current != null) 
 
 		{
-
 			listString = current.getData() + "\n";
-
-			
 
 			
 
@@ -234,9 +195,6 @@ public class linkedList
 
 		} 
 
-		
-
-		
 
 		else 
 
@@ -251,7 +209,17 @@ public class linkedList
 	
 
 	
-
+	public boolean isempty()
+	{
+		if (head == null)
+		{
+			return (true);
+		}
+		else 
+		{
+			return (false);
+		}
+	}
 	
 
 	
@@ -265,5 +233,4 @@ public class linkedList
 		head = null;
 
 	}
-
 }
