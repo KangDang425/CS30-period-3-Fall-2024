@@ -21,8 +21,8 @@ public class turn2 {
         rightMotors.open(5000);
 
         //Move forward at full speed
-        leftMotors.setTargetVelocity(1);
-        rightMotors.setTargetVelocity(1);
+        leftMotors.setTargetVelocity(-1);
+        rightMotors.setTargetVelocity(-1);
 
         //Wait for 1 second
         Thread.sleep(2000);
@@ -38,11 +38,28 @@ public class turn2 {
         rightMotors.setTargetVelocity(1);
 
         //Wait for 2 second
-        Thread.sleep(800);
+        Thread.sleep(1600);
 
         //Stop motors
         leftMotors.setTargetVelocity(0);
         rightMotors.setTargetVelocity(0);
+        
+      //Open
+        leftMotors.open(5000);
+        rightMotors.open(5000);
+
+        //Move forward at full speed
+        leftMotors.setTargetVelocity(-1);
+        rightMotors.setTargetVelocity(-1);
+
+        //Wait for 1 second
+        Thread.sleep(2000);
+
+        //Stop motors
+        leftMotors.setTargetVelocity(0);
+        rightMotors.setTargetVelocity(0);
+        
+        
         
         
     }
